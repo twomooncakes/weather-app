@@ -4,7 +4,7 @@
 
 :root {
   /* Theme colors */
-  --textColorLight: #ffffff;
+  --textColorLight: whitesmoke;
   --textColorDark: #191919;
 
   /* Fonts */
@@ -14,6 +14,7 @@
 body {
   font-family: var(--mainFont);
   box-sizing: border-box;
+  background-color: #191919;
 }
 
 button {

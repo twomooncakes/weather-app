@@ -1,0 +1,47 @@
+.weather_container {
+
+}
+
+.weather {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("https://wallpaperaccess.com/full/1170390.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 60vh;
+  color: var(--textColorLight);
+}
+
+.weather_title {
+  font-size: 1.8rem;
+  text-align: center;
+  margin: 0 3rem;
+}
+
+.input_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+  color: var(--textColorLight);
+}
+
+.input {
+  width: 50%;
+  border-radius: 99px;
+  border: none;
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.btn {
+  text-transform: uppercase;
+  border-radius: 99px;
+  border: none;
+  padding: 0.8rem 2rem;
+}
+
+
