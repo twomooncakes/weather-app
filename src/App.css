@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+}
+
+:root {
+  /* Theme colors */
+  --textColorLight: #ffffff;
+  --textColorDark: #191919;
+
+  /* Fonts */
+  --mainFont: 'Segoe UI', sans-serif;
+}
+
+body {
+  font-family: var(--mainFont);
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+}
