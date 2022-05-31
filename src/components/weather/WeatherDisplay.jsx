@@ -8,13 +8,15 @@ import { monthNamesShort, weekdayNamesFull } from "../../utils/helpers";
 
 const WeatherDisplay = () => {
   const { weatherData, weatherOptions } = useWeatherCtx();
-  const { temp, conditions, windspeed } = weatherData.currentConditions;
+  const { temp, conditions, windspeed, icon } = weatherData.currentConditions;
   const { distanceUnit , tempUnit } = weatherOptions.unitGroup;
+
   const fortnightForecast = weatherData.days.slice(1,15);
   const date = new Date(weatherData.days[0].datetime);
+
   return (
     <div className={css.weatherDisplay}>
-      <section className={css.today}>
+      <section className={`${css.today} bg ${icon}`}>
         
         <div className={css.today_left}>
           <h1>{temp} {tempUnit}</h1>

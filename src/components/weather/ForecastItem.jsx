@@ -11,7 +11,7 @@ const ForecastItem = (props) => {
   const date = new Date(props.date);
 
   return (
-    <div className={css.forecastItem}>
+    <div className={`${css.forecastItem} bg ${props.item.icon}`}>
       <div className={css.forecastItem_date}>
         <h2>{weekdayNamesShort[date.getDay()]}</h2>
         <p>{`${date.getDate()} ${monthNamesShort[date.getMonth()]}`}</p>
@@ -30,6 +30,12 @@ const ForecastItem = (props) => {
       <div>
         <AirOutlinedIcon className={css.icon} />
         <p>{props.item.windspeed ? `${props.item.windspeed} ${distanceUnit}/h` : "N/A"}</p> 
+      </div>
+
+      <div className={css.forecastItem_desc}>
+        <p>
+          {props.item.description}
+        </p>
       </div>
     </div>
   )

@@ -12,12 +12,13 @@ const Weather = () => {
 
 
   const getNewLocation = async () => {
-    // if(location.match(/^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$/)) {
-    //   const res = await Geocode.fromLatLng("48.8583701", "2.2922926");
-    //   const data = await res.json();
-    //   console.log(data);
-    // }
-    getData(location);
+    if(location.match(/^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$/)) {
+      const res = await Geocode.fromLatLng("48.8583701", "2.2922926");
+      const data = await res.json();
+      console.log(data);
+    }
+    await getData(location);
+    setLocation("")
   }
 
   const getData = async (locationStr) => {
@@ -43,7 +44,7 @@ const Weather = () => {
 
   return (
     <main className={css.weather_container}>
-      <section className={css.weather}>
+      <section className={`${css.weather}`}>
         <div className={css.weather_title}>
           <h1>Weather in {weatherData.resolvedAddress}</h1>
         </div>

@@ -48,3 +48,9 @@ export const monthNamesShort = [
   "Nov",
   "Dec",
 ]
+
+// export function getWeatherClass(str) {
+//   let classTitle = "";
+//   str.toLowerCase().includes("clear") ? classTitle = "clear" : (str.toLowerCase().includes("rain") ? classTitle = "rain" : (str.toLowerCase().includes("cloudy") ? "cloudy" : "default" ))
+//   return classTitle;
+// }

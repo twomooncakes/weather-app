@@ -24,3 +24,24 @@ button {
 h1, h2 {
   font-weight: 500;
 }
+
+/* Image classes */
+.bg {
+  background-size: cover;
+  background-position: center;
+  text-shadow: 1px 1px 2px var(--textColorDark);
+}
+.rain {
+  background-image: url("/src/assets/rainy.png");
+}
+.cloudy {
+  background-image: url("/src/assets/cloudy.jpg");
+}
+.partly-cloudy-day, .wind {
+  background-image: url("/src/assets/partly-cloudy.jpg");
+  color: var(--textColorDark);
+  text-shadow: 1px 1px 2px whitesmoke;
+}
+.clear-day {
+  background-image: url("/src/assets/sunny.jpg");
+}

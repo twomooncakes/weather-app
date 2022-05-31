@@ -7,11 +7,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url("https://wallpaperaccess.com/full/1170390.jpg");
   background-position: center;
   background-repeat: no-repeat;
-  height: 60vh;
+  height: 70vh;
   color: var(--textColorLight);
+  background-color: rgb(13, 39, 70);
 }
 
 .weather_title {
@@ -25,7 +25,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 40vh;
+  height: 30vh;
   color: var(--textColorLight);
 }
 
