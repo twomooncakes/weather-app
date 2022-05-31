@@ -65,8 +65,8 @@ const Weather = () => {
 
 
       <section className={css.input_container}>
-        <h2>Choose new location by entering city name or coordinates</h2>
-        <input className={css.input} value={location} onChange={(e) => setLocation(e.target.value)} type="text" placeholder="Enter new location" />
+        <h2>Choose new location</h2>
+        <input className={css.input} value={location} onChange={(e) => setLocation(e.target.value)} type="text" placeholder="Enter city name or coordinates" />
         <Button onClick={getNewLocation}>Let's go</Button>
       </section>
 

@@ -58,17 +58,16 @@
 }
 
 .fortnightForecast_title h2 {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
 }
 
 .fortnightForecast {
   background-color: transparent;
-  display: flex;
-  flex-direction: column;
-  /* grid-template-columns: repeat(7, 1fr); */
-  
+  /* display: flex;
+  flex-direction: column; */
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
 }
-
 
 @media (min-width: 860px) {
   .fortnightForecast {
@@ -76,11 +75,13 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 1.2rem;
   }
+  .fortnightForecast_title h2 {
+    font-size: 1.8rem;
+  }
 }
 
 @media (min-width: 1080px) {
   .fortnightForecast {
-    display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 1.5rem;
   }
@@ -88,16 +89,12 @@
 
 @media (min-width: 1280px) {
   .fortnightForecast {
-    display: grid;
     grid-template-columns: repeat(6, 1fr);
-    gap: 1.5rem;
   }
 }
 
 @media (min-width: 1500px) {
   .fortnightForecast {
-    display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 1.5rem;
   }
 }

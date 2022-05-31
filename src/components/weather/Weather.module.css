@@ -16,7 +16,7 @@
 }
 
 .weather_title {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   text-align: center;
   margin: 0 3rem;
 }
@@ -31,10 +31,25 @@
   margin: 1rem 0;
 }
 
+.input_container h2 {
+  width: 70%;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
 .input {
   width: 50%;
   border-radius: 99px;
   border: none;
   padding: 1rem 1.5rem;
   margin: 1.5rem 0;
+}
+
+@media (min-width: 860px) {
+  .weather_title {
+    font-size: 1.8rem;
+  }
+  .input_container h2 {
+    font-size: 1.6rem;
+  }
 }
