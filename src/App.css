@@ -37,11 +37,11 @@ h1, h2 {
 .cloudy {
   background-image: url("/src/assets/cloudy.jpg");
 }
-.partly-cloudy-day, .wind {
+.partly-cloudy-day, .partly-cloudy-night, .wind {
   background-image: url("/src/assets/partly-cloudy.jpg");
   color: var(--textColorDark);
   text-shadow: 1px 1px 2px whitesmoke;
 }
-.clear-day {
+.clear-day, .clear-night {
   background-image: url("/src/assets/sunny.jpg");
 }

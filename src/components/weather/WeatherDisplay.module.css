@@ -63,21 +63,41 @@
 
 .fortnightForecast {
   background-color: transparent;
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 1.5rem;
-  margin: 0 3rem;
+  display: flex;
+  flex-direction: column;
+  /* grid-template-columns: repeat(7, 1fr); */
+  
 }
 
-@media (max-width: 1000px) {
+
+@media (min-width: 860px) {
   .fortnightForecast {
+    display: grid;
     grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
   }
 }
 
-@media (max-width: 500px) {
+@media (min-width: 1080px) {
   .fortnightForecast {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .fortnightForecast {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1500px) {
+  .fortnightForecast {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1.5rem;
   }
 }

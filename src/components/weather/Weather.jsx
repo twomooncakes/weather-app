@@ -9,14 +9,15 @@ import Button from "../UI/Button";
 const Weather = () => {
   const { weatherData, weatherOptions, changeWeatherData } = useWeatherCtx();
   const [location, setLocation] = useState("");
+  const [currentLocation, setCurrentLocation] = useState("");
 
 
   const getNewLocation = async () => {
-    if(location.match(/^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$/)) {
-      const res = await Geocode.fromLatLng("48.8583701", "2.2922926");
-      const data = await res.json();
-      console.log(data);
-    }
+    // if(location.match(/^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$/)) {
+    //   const res = await Geocode.fromLatLng("48.8583701", "2.2922926");
+    //   const data = await res.json();
+    //   console.log(data);
+    // }
     await getData(location);
     setLocation("")
   }
@@ -30,16 +31,26 @@ const Weather = () => {
   
   useEffect(() => {
     const getInitialLocation = async () => {
-      const userLocation = await getUserLocation();
-      console.log(userLocation);
-      return userLocation;
+      navigator.geolocation.getCurrentPosition(async function(position) {
+        setLocation(`${position.coords.latitude},${position.coords.longitude}`)
+        setCurrentLocation(`${position.coords.latitude},${position.coords.longitude}`);
+      });
     }
+    
     getInitialLocation();
 
     // getData("54.6906,25.2698");
-    getData("Vilnius");
+    getData(location ? location : "Vilnius");
 
   }, [])
+
+  useEffect(() => {
+    if(currentLocation.match(/^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$/)) {
+      getData(currentLocation);
+      setLocation("")
+    }
+  }, [currentLocation])
+  
   
 
   return (
