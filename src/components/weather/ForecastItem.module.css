@@ -1,0 +1,31 @@
+.forecastItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 2rem;
+  border: 1px solid white;
+  background-color: black;
+  padding: 1rem 1.5rem;
+}
+
+.forecastItem div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* check compatability among other browsers */
+  width: -webkit-fill-available;
+  margin-bottom: 0.4rem;
+}
+
+.forecastItem_date {
+  display: flex;
+  justify-content: space-between;
+}
+
+.forecastItem_date h2 {
+  margin-right: 0.5rem;
+}
+
+.forecastItem .icon {
+  margin-right: 1rem;
+}

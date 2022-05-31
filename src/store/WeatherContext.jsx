@@ -1,12 +1,10 @@
 import React, { useContext, useState } from 'react';
+import { metric } from "../utils/helpers";
 
 const WeatherContext = React.createContext({});
 
 function WeatherProvider({ children }) {
-  // move to utils
-  const metric = { name: "metric", tempUnit: "°C", distanceUnit: "km" }
-  const us = { name: "us", tempUnit: "°F", distanceUnit: "m" }
-
+  
   const [weatherOptions, setWeatherOptions] = useState({
     unitGroup: metric
   });

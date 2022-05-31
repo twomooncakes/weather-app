@@ -32,7 +32,28 @@
   justify-content: space-between;
 }
 
+.today_right div {
+  display: flex;
+  align-items: center;
+}
+
+.today_right .icon {
+  margin-right: 1rem;
+}
+
+.fortnightForecast_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.fortnightForecast_title {
+  margin-bottom: 1rem;
+}
+
 .fortnightForecast {
+  background-color: transparent;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 1.5rem;

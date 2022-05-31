@@ -4,6 +4,7 @@ import { useWeatherCtx } from "../../store/WeatherContext";
 import WeatherDisplay from "./WeatherDisplay";
 import Geocode from "react-geocode";
 import { getUserLocation } from "../../utils/helpers";
+import Button from "../UI/Button";
 
 const Weather = () => {
   const { weatherData, weatherOptions, changeWeatherData } = useWeatherCtx();
@@ -34,7 +35,8 @@ const Weather = () => {
     }
     getInitialLocation();
 
-    getData("54.6906,25.2698");
+    // getData("54.6906,25.2698");
+    getData("Vilnius");
 
   }, [])
   
@@ -53,7 +55,7 @@ const Weather = () => {
       <section className={css.input_container}>
         <h2>Choose new location by entering city name or coordinates</h2>
         <input className={css.input} value={location} onChange={(e) => setLocation(e.target.value)} type="text" placeholder="Enter new location" />
-        <button className={css.btn} onClick={getNewLocation}>Let's go</button>
+        <Button onClick={getNewLocation}>Let's go</Button>
       </section>
 
     </main>

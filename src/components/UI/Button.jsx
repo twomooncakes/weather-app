@@ -1,6 +1,8 @@
-const Button = ({ children }) => {
+import css from "./Button.module.css";
+
+const Button = ({ children, onClick }) => {
   return (
-    <button>
+    <button onClick={onClick} className={css.btn}>
       {children}
     </button>
   )

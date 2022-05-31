@@ -1,20 +1,35 @@
 import { useWeatherCtx } from "../../store/WeatherContext";
+import css from "./ForecastItem.module.css";
 import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined';
 import NightlightOutlinedIcon from '@mui/icons-material/NightlightOutlined';
 import AirOutlinedIcon from '@mui/icons-material/AirOutlined';
+import { monthNamesShort, weekdayNamesShort } from "../../utils/helpers";
 
 const ForecastItem = (props) => {
   const { weatherOptions } = useWeatherCtx();
   const { distanceUnit , tempUnit } = weatherOptions.unitGroup;
+  const date = new Date(props.date);
+
   return (
-    <div>
+    <div className={css.forecastItem}>
+      <div className={css.forecastItem_date}>
+        <h2>{weekdayNamesShort[date.getDay()]}</h2>
+        <p>{`${date.getDate()} ${monthNamesShort[date.getMonth()]}`}</p>
+      </div>
+      
       <div>
-        <p><WbSunnyOutlinedIcon /> {props.item.tempmax + tempUnit}</p>
-        <p><NightlightOutlinedIcon /> {props.item.tempmin + tempUnit}</p>
+        <WbSunnyOutlinedIcon className={css.icon} />
+        <p>{`${props.item.tempmax} ${tempUnit}`}</p> 
       </div>
 
       <div>
-        <p><AirOutlinedIcon /> {props.item.windspeed ? `${props.item.windspeed} ${distanceUnit}/h` : "N/A"}</p>
+        <NightlightOutlinedIcon className={css.icon} />
+        <p>{`${props.item.tempmin} ${tempUnit}`}</p> 
+      </div>
+
+      <div>
+        <AirOutlinedIcon className={css.icon} />
+        <p>{props.item.windspeed ? `${props.item.windspeed} ${distanceUnit}/h` : "N/A"}</p> 
       </div>
     </div>
   )
