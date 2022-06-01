@@ -28,7 +28,12 @@ const WeatherDisplay = () => {
 
   return (
     <div className={css.weatherDisplay}>
-      <section className={`${css.today} bg ${icon}`}>
+      <motion.section
+        initial={{ opacity: 0 }} 
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.2 }} 
+        className={`${css.today} bg ${icon}`}
+      >
         
         <div className={css.today_left}>
           <h1>{temp} {tempUnit}</h1>
@@ -53,19 +58,24 @@ const WeatherDisplay = () => {
           </div>
           
         </div>
-      </section>
+      </motion.section>
 
-      <section className={css.fortnightForecast_container}>
+      <motion.section
+        initial={{ opacity: 0 }} 
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.6 }}
+        className={css.fortnightForecast_container}
+      >
         <div className={css.fortnightForecast_title}>
           <h2>14 Day Forecast</h2>
         </div>
         <motion.div ref={slider} className="slider">
-          <motion.div draggable={true} drag="x" dragConstraints={{ right: 0, left: -width }} className={`${css.fortnightForecast} inner-slider`}>
+          <motion.div drag="x" dragConstraints={{ right: 0, left: -width }} className={`${css.fortnightForecast} inner-slider`}>
             {fortnightForecast.length !== 0 && fortnightForecast.map(day => <ForecastItem key={day.datetime} date={day.datetime} item={day} />)}
           </motion.div>
         </motion.div>
         
-      </section>
+      </motion.section>
 
     </div>
   )

@@ -3,13 +3,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1rem 0;
+  padding: 1rem;
   color: var(--textColorLight);
-  background-color: rgb(13, 39, 70);
+  background-color: var(--primaryColor);
 }
 
 .weather_title {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   text-align: center;
   margin: 0 3rem;
 }
@@ -39,7 +39,7 @@
 
 @media (min-width: 860px) {
   .weather_title {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
   .input_container h2 {
     font-size: 1.6rem;

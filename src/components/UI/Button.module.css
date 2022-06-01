@@ -2,6 +2,21 @@
   text-transform: uppercase;
   border-radius: 99px;
   border: none;
-  padding: 0.8rem 2rem;
   cursor: pointer;
+  font-family: var(--mainFont);
+  letter-spacing: 1px;
+  background-color: var(--secondaryColor);
+  color: var(--textColorLight);
+  font-weight: 700;
+}
+
+.btn_regular {
+  padding: 0.8rem 2rem;
+}
+
+.btn_bubble {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
 }

@@ -1,4 +1,23 @@
 header {
   display: flex;
   justify-content: space-between;
+  padding: 0.5rem 1rem;
+}
+
+header h1 {
+  font-weight: 600;
+  color: var(--textColorLight);
+  letter-spacing: 1px;
+}
+
+header h1 > span {
+  color: var(--secondaryColor);
+}
+
+.header_btns {
+  white-space: nowrap;
+}
+
+.header_btns > button:first-child {
+  margin-right: 0.4rem;
 }

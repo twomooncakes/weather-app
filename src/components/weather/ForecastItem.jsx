@@ -12,7 +12,9 @@ const ForecastItem = (props) => {
   const date = new Date(props.date);
 
   return (
-    <motion.div className={`${css.forecastItem} bg ${props.item.icon}`}>
+    <motion.div
+      className={`${css.forecastItem} bg ${props.item.icon}`}
+    >
       <div className={css.forecastItem_date}>
         <h2>{weekdayNamesShort[date.getDay()]}</h2>
         <p>{`${date.getDate()} ${monthNamesShort[date.getMonth()]}`}</p>

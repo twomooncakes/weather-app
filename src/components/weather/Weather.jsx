@@ -4,12 +4,16 @@ import { useWeatherCtx } from "../../store/WeatherContext";
 import WeatherDisplay from "./WeatherDisplay";
 // import Geocode from "react-geocode";
 import Button from "../UI/Button";
+import { motion } from "framer-motion";
 
 const Weather = () => {
   const { weatherData, weatherOptions, changeWeatherData } = useWeatherCtx();
   const [location, setLocation] = useState("");
   const [currentLocation, setCurrentLocation] = useState("");
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0 });
+  }
 
   const getNewLocation = async () => {
     // if(location.match(/^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$/)) {
@@ -17,8 +21,12 @@ const Weather = () => {
     //   const data = await res.json();
     //   console.log(data);
     // }
+    if(location === "") {
+      return;
+    }
     await getData(location);
-    setLocation("")
+    setLocation("");
+    scrollToTop();
   }
 
   const getData = async (locationStr) => {
@@ -54,7 +62,7 @@ const Weather = () => {
     <main className={css.weather_container}>
       <section className={`${css.weather}`}>
         <div className={css.weather_title}>
-          <h1>Weather in {weatherData.resolvedAddress}</h1>
+          <h1>Weather in <br/>{weatherData.resolvedAddress}</h1>
         </div>
 
         {Object.keys(weatherData).length !== 0 && <WeatherDisplay />}
@@ -63,7 +71,7 @@ const Weather = () => {
 
       <section className={css.input_container}>
         <h2>Choose new location</h2>
-        <input className={css.input} value={location} onChange={(e) => setLocation(e.target.value)} type="text" placeholder="Enter city name or coordinates" />
+        <motion.input whileFocus={{ scale: 1.1 }} className={css.input} value={location} onChange={(e) => setLocation(e.target.value)} type="text" placeholder="Enter city name or coordinates" />
         <Button onClick={getNewLocation}>Let's go</Button>
       </section>
 

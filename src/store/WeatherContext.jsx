@@ -15,7 +15,7 @@ function WeatherProvider({ children }) {
   }
 
   const changeWeatherOptions = (newOptions) => {
-    setWeatherData(newOptions);
+    setWeatherOptions(newOptions);
   }
 
   return (

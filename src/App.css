@@ -4,11 +4,19 @@
 
 :root {
   /* Theme colors */
+  --primaryColor: #0D2746;
+  --secondaryColor: rgb(42, 98, 207);
+  --accentColor: #8ffedd;
+  --secondary2Color: #B1B434;
   --textColorLight: whitesmoke;
   --textColorDark: #191919;
 
   /* Fonts */
   --mainFont: 'Segoe UI', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
