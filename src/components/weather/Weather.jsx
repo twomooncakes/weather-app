@@ -5,11 +5,13 @@ import WeatherDisplay from "./WeatherDisplay";
 // import Geocode from "react-geocode";
 import Button from "../UI/Button";
 import { motion } from "framer-motion";
+import Loader from "../UI/Loader";
 
 const Weather = () => {
   const { weatherData, weatherOptions, changeWeatherData } = useWeatherCtx();
   const [location, setLocation] = useState("");
   const [currentLocation, setCurrentLocation] = useState("");
+  const [loading, setLoading] = useState(true);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0 });
@@ -24,9 +26,11 @@ const Weather = () => {
     if(location === "") {
       return;
     }
+    setLoading(true);
+    scrollToTop();
     await getData(location);
     setLocation("");
-    scrollToTop();
+    setLoading(false);
   }
 
   const getData = async (locationStr) => {
@@ -35,6 +39,7 @@ const Weather = () => {
     console.log(data);
     changeWeatherData(data);
     setLocation("")
+    setLoading(false);
   }
   
   useEffect(() => {
@@ -60,20 +65,29 @@ const Weather = () => {
 
   return (
     <main className={css.weather_container}>
-      <section className={`${css.weather}`}>
-        <div className={css.weather_title}>
-          <h1>Weather in <br/>{weatherData.resolvedAddress}</h1>
-        </div>
+      {loading ? <Loader /> :
+      <>
+        <section className={`${css.weather}`}>
+          <div className={css.weather_title}>
+            <h1>Weather in <br/>{weatherData.resolvedAddress}</h1>
+          </div>
 
-        {Object.keys(weatherData).length !== 0 && <WeatherDisplay />}
-      </section>
+          {Object.keys(weatherData).length !== 0 && <WeatherDisplay />}
+        </section>
 
+        <section className={css.input_container}>
+          <h2>Choose new location</h2>
+          <motion.input 
+            whileFocus={{ scale: 1.1 }} 
+            className={css.input} 
+            value={location} 
+            onChange={(e) => setLocation(e.target.value)} type="text" 
+            placeholder="Enter city name or coordinates" 
+          />
+          <Button onClick={getNewLocation}>Let's go</Button>
+        </section>
+      </>}
 
-      <section className={css.input_container}>
-        <h2>Choose new location</h2>
-        <motion.input whileFocus={{ scale: 1.1 }} className={css.input} value={location} onChange={(e) => setLocation(e.target.value)} type="text" placeholder="Enter city name or coordinates" />
-        <Button onClick={getNewLocation}>Let's go</Button>
-      </section>
 
     </main>
   )

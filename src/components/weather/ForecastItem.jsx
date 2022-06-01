@@ -4,7 +4,6 @@ import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined';
 import NightlightOutlinedIcon from '@mui/icons-material/NightlightOutlined';
 import AirOutlinedIcon from '@mui/icons-material/AirOutlined';
 import { monthNamesShort, weekdayNamesShort } from "../../utils/helpers";
-import { motion } from "framer-motion";
 
 const ForecastItem = (props) => {
   const { weatherOptions } = useWeatherCtx();
@@ -12,7 +11,7 @@ const ForecastItem = (props) => {
   const date = new Date(props.date);
 
   return (
-    <motion.div
+    <div
       className={`${css.forecastItem} bg ${props.item.icon}`}
     >
       <div className={css.forecastItem_date}>
@@ -40,7 +39,7 @@ const ForecastItem = (props) => {
           {props.item.description}
         </p>
       </div>
-    </motion.div>
+    </div>
   )
 }
 

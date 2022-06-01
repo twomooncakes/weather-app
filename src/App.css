@@ -7,7 +7,8 @@
   --primaryColor: #0D2746;
   --secondaryColor: rgb(42, 98, 207);
   --accentColor: #8ffedd;
-  --secondary2Color: #B1B434;
+  --darkColor: #191919;
+
   --textColorLight: whitesmoke;
   --textColorDark: #191919;
 
@@ -22,7 +23,7 @@ html {
 body {
   font-family: var(--mainFont);
   box-sizing: border-box;
-  background-color: #191919;
+  background-color: var(--primaryColor);
 }
 
 button {
@@ -54,6 +55,21 @@ h1, h2 {
   background-image: url("/src/assets/sunny.jpg");
 }
 
+.loader-container {
+  display: flex;
+  margin: 0 auto;
+  width: 100px;
+}
+
+.loader {
+  display: block;
+  width: 25px;
+  height: 25px;
+  margin: 40px auto;
+  border-radius: 50%;
+  background-color: whitesmoke;
+}
+
 .slider {
   overflow: hidden;
   margin: 0 50px;
@@ -61,8 +77,6 @@ h1, h2 {
 
 @media (max-width: 860px) {
   .slider {
-    /* min-width: 200px;
-    max-width: 430px; */
     width: 85vw;
   }
 }
