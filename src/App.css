@@ -45,3 +45,16 @@ h1, h2 {
 .clear-day, .clear-night {
   background-image: url("/src/assets/sunny.jpg");
 }
+
+.slider {
+  overflow: hidden;
+  margin: 0 50px;
+}
+
+@media (max-width: 860px) {
+  .slider {
+    /* min-width: 200px;
+    max-width: 430px; */
+    width: 85vw;
+  }
+}

@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import css from "./Weather.module.css";
 import { useWeatherCtx } from "../../store/WeatherContext";
 import WeatherDisplay from "./WeatherDisplay";
-import Geocode from "react-geocode";
-import { getUserLocation } from "../../utils/helpers";
+// import Geocode from "react-geocode";
 import Button from "../UI/Button";
 
 const Weather = () => {
@@ -27,6 +26,7 @@ const Weather = () => {
     const data = await res.json();
     console.log(data);
     changeWeatherData(data);
+    setLocation("")
   }
   
   useEffect(() => {
@@ -36,20 +36,17 @@ const Weather = () => {
         setCurrentLocation(`${position.coords.latitude},${position.coords.longitude}`);
       });
     }
-    
     getInitialLocation();
-
-    // getData("54.6906,25.2698");
     getData(location ? location : "Vilnius");
-
+    // eslint-disable-next-line
   }, [])
 
   useEffect(() => {
     if(currentLocation.match(/^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$/)) {
       getData(currentLocation);
       setLocation("")
-    }
-  }, [currentLocation])
+    } // eslint-disable-next-line
+  }, [currentLocation]) 
   
   
 

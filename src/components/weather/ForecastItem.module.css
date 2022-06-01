@@ -5,6 +5,9 @@
   border-radius: 2rem;
   padding: 1rem 1.5rem 0.5rem;
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  cursor: grab;
+  /* overflow-x: hidden; */
+  min-width: 8rem;
 }
 
 .forecastItem div {
@@ -42,4 +45,10 @@
 .forecastItem_desc p {
   font-size: 12px;
   max-width: 130px;
+}
+
+@media (min-width: 860px) {
+  .forecastItem {
+    cursor: none;
+  }
 }

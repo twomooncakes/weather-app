@@ -6,6 +6,9 @@ import AirOutlinedIcon from '@mui/icons-material/AirOutlined';
 import ForecastItem from "./ForecastItem";
 import { monthNamesShort, weekdayNamesFull } from "../../utils/helpers";
 
+import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+
 const WeatherDisplay = () => {
   const { weatherData, weatherOptions } = useWeatherCtx();
   const { temp, conditions, windspeed, icon } = weatherData.currentConditions;
@@ -13,6 +16,15 @@ const WeatherDisplay = () => {
 
   const fortnightForecast = weatherData.days.slice(1,15);
   const date = new Date(weatherData.days[0].datetime);
+
+  const [width, setWidth] = useState(0);
+  const slider = useRef();
+
+  useEffect(() => {
+    console.log(slider.current.scrollWidth, slider.current.offsetWidth);
+    setWidth(slider.current.scrollWidth - slider.current.offsetWidth);
+  }, [])
+  
 
   return (
     <div className={css.weatherDisplay}>
@@ -47,9 +59,11 @@ const WeatherDisplay = () => {
         <div className={css.fortnightForecast_title}>
           <h2>14 Day Forecast</h2>
         </div>
-        <div className={css.fortnightForecast}>
-          {fortnightForecast.length !== 0 && fortnightForecast.map(day => <ForecastItem key={day.datetime} date={day.datetime} item={day} />)}
-        </div>
+        <motion.div ref={slider} className="slider">
+          <motion.div draggable={true} drag="x" dragConstraints={{ right: 0, left: -width }} className={`${css.fortnightForecast} inner-slider`}>
+            {fortnightForecast.length !== 0 && fortnightForecast.map(day => <ForecastItem key={day.datetime} date={day.datetime} item={day} />)}
+          </motion.div>
+        </motion.div>
         
       </section>
 

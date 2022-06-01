@@ -1,15 +1,8 @@
-.weather_container {
-
-}
-
 .weather {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-position: center;
-  background-repeat: no-repeat;
-  /* height: 70vh; */
   padding: 1rem 0;
   color: var(--textColorLight);
   background-color: rgb(13, 39, 70);
@@ -26,7 +19,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* height: 30vh; */
   color: var(--textColorLight);
   margin: 1rem 0;
 }
