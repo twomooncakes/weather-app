@@ -24,6 +24,7 @@ body {
   font-family: var(--mainFont);
   box-sizing: border-box;
   background-color: var(--primaryColor);
+  min-height: 100vh;
 }
 
 button {

@@ -1,9 +1,18 @@
+.weather_container {
+  height: calc(100vh - 50px - 1rem);
+  background-color: var(--primaryColor);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .weather {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
+  margin: 0 2%;
+  padding: 1rem 0;
   color: var(--textColorLight);
   background-color: var(--primaryColor);
 }
@@ -22,6 +31,7 @@
   background-color: var(--darkColor);
   color: var(--textColorLight);
   padding: 1rem 0;
+  flex-grow: 1;
 }
 
 .input_container h2 {
@@ -39,6 +49,10 @@
 }
 
 @media (min-width: 860px) {
+  .weather {
+    padding: 2rem 0;
+    margin: 0 5%;
+  }
   .weather_title {
     font-size: 1.6rem;
   }
@@ -47,5 +61,24 @@
   }
   .input_container h2 {
     font-size: 1.6rem;
+  }
+}
+
+@media (min-width: 1080px) {
+  .weather {
+    padding: 2.5rem 0;
+  }
+  .input_container {
+    padding: 1.8rem 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  .weather {
+    padding: 2.8rem 0;
+    margin: 0 10%;
+  }
+  .input_container {
+    padding: 2.5rem 0;
   }
 }

@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import css from "./Weather.module.css";
 import { useWeatherCtx } from "../../store/WeatherContext";
 import WeatherDisplay from "./WeatherDisplay";
-// import Geocode from "react-geocode";
 import Button from "../UI/Button";
 import { motion } from "framer-motion";
 import Loader from "../UI/Loader";
+import toast from "react-hot-toast";
 
 const Weather = () => {
   const { weatherData, weatherOptions, changeWeatherData } = useWeatherCtx();
@@ -18,12 +18,18 @@ const Weather = () => {
   }
 
   const getNewLocation = async () => {
-    // if(location.match(/^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$/)) {
-    //   const res = await Geocode.fromLatLng("48.8583701", "2.2922926");
-    //   const data = await res.json();
-    //   console.log(data);
-    // }
-    if(location === "") {
+    if(location.length <= 1) {
+      toast(`Invalid or empty location!`,
+        {
+          icon: '❌',
+          style: {
+            borderRadius: '2rem',
+            background: 'var(--secondaryColor)',
+            color: 'var(--textColorLight)',
+            fontFamily: 'var(--mainFont)',
+          },
+        }
+      );
       return;
     }
     setLoading(true);
@@ -35,11 +41,42 @@ const Weather = () => {
 
   const getData = async (locationStr) => {
     const res = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${locationStr}?unitGroup=${weatherOptions.unitGroup.name}&key=MCEQ5R2WXTX6M8XNYFVTJYXEL&contentType=json`);
-    const data = await res.json();
-    console.log(data);
-    changeWeatherData(data);
-    setLocation("")
-    setLoading(false);
+    if(res.status === 200) {
+      const data = await res.json();
+      console.log(data);
+      changeWeatherData(data);
+      setLocation("");
+      setLoading(false);
+      return;
+    }
+
+    if(res.status === 400) {
+      setLoading(false);
+      toast(`Invalid location!`,
+        {
+          icon: '❌',
+          style: {
+            borderRadius: '2rem',
+            background: 'var(--secondaryColor)',
+            color: 'var(--textColorLight)',
+            fontFamily: 'var(--mainFont)',
+          },
+        }
+      );
+      return;
+    }
+
+    toast(`Something went wrong!`,
+      {
+        icon: '❌',
+        style: {
+          borderRadius: '2rem',
+          background: 'var(--secondaryColor)',
+          color: 'var(--textColorLight)',
+          fontFamily: 'var(--mainFont)',
+        },
+      }
+    );
   }
   
   useEffect(() => {

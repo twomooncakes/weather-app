@@ -12,21 +12,24 @@ const Header = () => {
 
 
   return (
-    <header className={css.header}>
-      <motion.h1 
-        initial={{ y: -150 }}
-        animate={{ y: 0 }}
-      >
-        Weather<span>App</span>
-      </motion.h1>
+    <div className={css.header_container}>
+      <header className={css.header}>
+        <motion.h1 
+          initial={{ y: -150 }}
+          animate={{ y: 0 }}
+        >
+          Weather<span>App</span>
+        </motion.h1>
 
-      <div className={css.header_btns}>
-        <Button onClick={scrollToBottom} isBubble={true}>
-          <LocationOnOutlinedIcon />
-        </Button>
-        <UnitToggle />
-      </div>
-    </header>
+        <div className={css.header_btns}>
+          <Button onClick={scrollToBottom} isBubble={true}>
+            <LocationOnOutlinedIcon />
+          </Button>
+          <UnitToggle />
+        </div>
+      </header>
+
+    </div>
   )
 }
 
