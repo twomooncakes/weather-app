@@ -77,6 +77,7 @@ const Weather = () => {
         },
       }
     );
+    setLoading(false);
   }
   
   useEffect(() => {

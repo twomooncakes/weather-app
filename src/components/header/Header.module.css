@@ -35,12 +35,6 @@
   }
 }
 
-/* @media (min-width: 1080px) {
-  .header {
-    margin: 0 8%;
-  }
-} */
-
 @media (min-width: 1280px) {
   .header {
     margin: 0 10%;

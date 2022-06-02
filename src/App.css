@@ -5,8 +5,7 @@
 :root {
   /* Theme colors */
   --primaryColor: #0D2746;
-  --secondaryColor: rgb(42, 98, 207);
-  --accentColor: #8ffedd;
+  --secondaryColor: #2a62cf;
   --darkColor: #191919;
 
   --textColorLight: whitesmoke;
@@ -14,10 +13,15 @@
 
   /* Fonts */
   --mainFont: 'Segoe UI', sans-serif;
+
+  /* Misc */
+  --boxShadowValues: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
 html {
   scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--secondaryColor) var(--darkColor);
 }
 
 body {
@@ -25,6 +29,16 @@ body {
   box-sizing: border-box;
   background-color: var(--primaryColor);
   min-height: 100vh;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--darkColor);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--secondaryColor) ;
 }
 
 button {

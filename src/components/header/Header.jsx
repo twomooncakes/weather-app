@@ -21,12 +21,16 @@ const Header = () => {
           Weather<span>App</span>
         </motion.h1>
 
-        <div className={css.header_btns}>
+        <motion.div 
+          className={css.header_btns}
+          initial={{ y: -150 }}
+          animate={{ y: 0 }}
+        >
           <Button onClick={scrollToBottom} isBubble={true}>
             <LocationOnOutlinedIcon />
           </Button>
           <UnitToggle />
-        </div>
+        </motion.div>
       </header>
 
     </div>
